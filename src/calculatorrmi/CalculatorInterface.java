@@ -8,10 +8,7 @@ package calculatorrmi;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-/**
- *
- * @author coldwarrior
- */
+
 public interface CalculatorInterface extends Remote {
     public double magicAdd(double x, double y)throws RemoteException;
     public double magicSubtract(double x, double y)throws RemoteException;

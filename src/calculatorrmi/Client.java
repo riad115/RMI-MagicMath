@@ -7,10 +7,7 @@ import java.rmi.RemoteException;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- *
- * @author coldwarrior
- */
+
 public class Client implements Runnable{
     private CalculatorInterface calcIface;
     private String clientName;

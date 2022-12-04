@@ -8,10 +8,7 @@ package calculatorrmi;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-/**
- *
- * @author coldwarrior
- */
+
 public class CalculatorRmi extends UnicastRemoteObject implements CalculatorInterface{
     int totalOperations;
     public CalculatorRmi() throws RemoteException 
