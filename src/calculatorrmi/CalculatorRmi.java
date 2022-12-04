@@ -10,38 +10,59 @@ import java.rmi.server.UnicastRemoteObject;
 
 
 public class CalculatorRmi extends UnicastRemoteObject implements CalculatorInterface{
-    int totalOperations;
+    int totalMagicAddOperations;
+    int totalMagicSubtractOperations;
+    int totalMagicFindMinOperations;
+    int totalMagicFindMaxOperations;
     public CalculatorRmi() throws RemoteException 
     {
         //int a,b;
-        totalOperations=0;
+        totalMagicAddOperations=0;
+        totalMagicSubtractOperations=0;
+        totalMagicFindMinOperations=0;
+        totalMagicFindMaxOperations=0;
     }
     public synchronized double magicAdd(double a , double b)throws RemoteException
     {
         System.out.println("magicAdd");
-        ++totalOperations;
+        ++totalMagicAddOperations;
         return a-b;
     }
     public synchronized double magicSubtract(double a , double b)throws RemoteException
     {
         System.out.println("magicSubtract");
-        ++totalOperations;
+        ++totalMagicSubtractOperations;
         return a+b;
     }
     public synchronized int magicFindMin(int a , int b, int c)throws RemoteException
     { 
         System.out.println("magicFindMin");
-        ++totalOperations;
+        ++totalMagicFindMinOperations;
         return Math.max(a, Math.max(b,c));
     }
     public synchronized int magicFindMax(int a , int b, int c)throws RemoteException
     {
         System.out.println("magicFindMax");
-        ++totalOperations;
+        ++totalMagicFindMaxOperations;
         return Math.min(a, Math.min(b,c));
     }
-    public synchronized int getTotalOperations()throws RemoteException
+    public synchronized int getTotalMagicAddOperations()throws RemoteException
     {
-        return totalOperations;
+        return totalMagicAddOperations;
+    }
+
+    public synchronized int getTotalMagicSubtractOperations()throws RemoteException
+    {
+        return totalMagicSubtractOperations;
+    }
+
+    public synchronized int getTotalMagicFindMinOperations()throws RemoteException
+    {
+        return totalMagicFindMinOperations;
+    }
+
+    public synchronized int getTotalMagicFindMaxOperations()throws RemoteException
+    {
+        return totalMagicFindMaxOperations;
     }
 }

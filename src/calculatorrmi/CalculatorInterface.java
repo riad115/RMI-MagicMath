@@ -14,6 +14,9 @@ public interface CalculatorInterface extends Remote {
     public double magicSubtract(double x, double y)throws RemoteException;
     public int magicFindMin(int x, int y, int z)throws RemoteException;
     public int magicFindMax(int x, int y, int z)throws RemoteException;
-    public int getTotalOperations()throws RemoteException;
+    public int getTotalMagicAddOperations()throws RemoteException;
+    public int getTotalMagicSubtractOperations()throws RemoteException;
+    public int getTotalMagicFindMinOperations()throws RemoteException;
+    public int getTotalMagicFindMaxOperations()throws RemoteException;
   
 }

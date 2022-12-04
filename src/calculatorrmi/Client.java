@@ -19,7 +19,7 @@ public class Client implements Runnable{
 
     public void run(){
         System.out.println(clientName+" is connected to server");
-        for(int i=0;i<10;++i){
+        for(int i=0;i<1000;++i){
             //Scanner sc = new Scanner(System.in);
             Random random = new Random();
             int max_ch=4;
@@ -94,7 +94,10 @@ public class Client implements Runnable{
         }
         
         try {
-            System.out.println(clientName+ ": Total Operations Performed by Server "+calcIface.getTotalOperations());
+            System.out.println(clientName+ ": Total magicAdd Performed by Server "+calcIface.getTotalMagicAddOperations());
+            System.out.println(clientName+ ": Total magicSubtract Performed by Server "+calcIface.getTotalMagicSubtractOperations());
+            System.out.println(clientName+ ": Total magicFindMin Performed by Server "+calcIface.getTotalMagicFindMinOperations());
+            System.out.println(clientName+ ": Total magicFindMax Performed by Server "+calcIface.getTotalMagicFindMaxOperations());
         } catch (RemoteException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -107,6 +110,7 @@ public class Client implements Runnable{
         
         try {
             CalculatorInterface c = (CalculatorInterface)Naming.lookup("rmi://localhost:1099/Calculator");
+            //CalculatorInterface c = (CalculatorInterface)Naming.lookup("rmi://192.168.1.2:1099/Calculator");
             new Thread(new Client(c, "Client1")).start();
             new Thread(new Client(c, "Client2")).start();
         } catch (Exception e) {
